@@ -15,6 +15,17 @@
         <app-counter1></app-counter1>
         <br>
         <app-counter2></app-counter2>
+        <hr>
+        <label for="value">New Value ("v-model"): </label>
+        <!-- 'v-model' alone does not change values in vuex store -->
+        <!-- Must use getters and setters computed property -->
+        <input type="text" id="value" v-model="value">
+        <p>Value ("v-model"): {{value}}</p>
+        <hr>
+        <label for="value">New Value (":value" & "@input"): </label>
+        <input type="text" id="value" :value="value" @input="updateValue">
+        <p>Value (":value" & "@input"): {{value}}</p>
+        <hr>
 
       </div>
     </div>
@@ -57,6 +68,24 @@
       appCounter2: Counter2,
       appResult1: Result1,
       appResult2: Result2,
+    },
+    computed: {
+      // value() {
+      //   return this.$store.getters.getValue;
+      // },
+      value: {                         // getter and setter in a computed property
+        get() {
+          return this.$store.getters.getValue;
+        },
+        set(val) {                     // rarely used for computed property
+          this.$store.dispatch('updateValue', val);
+        },
+      },
+    },
+    methods: {
+      updateValue(event) {
+        this.$store.dispatch('updateValue', event.target.value);
+      },
     },
   };
 </script>

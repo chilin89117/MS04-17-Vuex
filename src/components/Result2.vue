@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  import * as types from '../store/types';
   import {mapGetters} from 'vuex';
 
   // '...' in ES6 tells JS to pull out functions in 'mapGetters' object as...
@@ -18,10 +19,10 @@
   // ...and add 'stage-2' to '.babelrc' file
   export default {
     computed: {
-      ...mapGetters([
-        'stringCounter',
-        'doubleCounter',
-      ]),
+      ...mapGetters({
+        stringCounter: types.STRING_COUNTER,
+        doubleCounter: types.DOUBLE_COUNTER,
+      }),
     },
 
     // This uses 'mapGetters' but does not allow custom computed properties
