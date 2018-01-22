@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-10 col-md-offset-1">
-        <h1>MS04-13 Vuex</h1>
+        <h1>MS04-17-Vuex</h1>
 
         <!-- Old way without vuex -->
         <!-- <app-result :counter="counter"></app-result> -->

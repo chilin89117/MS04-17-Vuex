@@ -1,4 +1,7 @@
-# MS04-13 Vuex (No Laravel)
+# MS04-17-Vuex
+
+![App.vue](../assets/a.png?raw=true)
+
 ## `App.vue`
 * Centralized state/store
 * Getters
